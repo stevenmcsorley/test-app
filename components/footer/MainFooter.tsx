@@ -1,7 +1,8 @@
 import React from 'react'
+import Box from '@mui/material/Box'
 
 const MainFooter = () => {
-  return <div>MainFooter</div>
+  return <Box>MainFooter</Box>
 }
 
 export default MainFooter
