@@ -1,9 +1,5 @@
 // Import Swiper React components
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react'
-// import SwiperCore, { Scrollbar } from 'swiper';
-
-// Import Swiper styles
-// import 'swiper/swiper-bundle';
 
 import React from 'react'
 import Box from '@mui/material/Box'
