@@ -9,12 +9,12 @@ const Home = () => {
     <Box>
       <Header />
       <MainNavigation />
-      <Box maxWidth="1200px" sx={{ margin: 'auto' }} py={8}>
+      <Box maxWidth="lg" sx={{ margin: 'auto' }} p={8}>
         <Grid container rowSpacing={4} columnSpacing={4}>
-          <Grid item xs={8}>
+          <Grid item xs={12} lg={8}>
             <SuperCardOne />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} lg={4}>
             <Grid item xs={12} pb={4}>
               <SuperCardOne />
             </Grid>
