@@ -9,7 +9,13 @@
     "lint": "next lint",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -35,7 +41,7 @@
     "eslint-config-next": "12.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest-dom": "^4.0.1",
-    "husky": "^7.0.4",
+    "husky": "^8.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.4",
     "prettier": "^2.5.1",
