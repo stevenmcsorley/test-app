@@ -61,34 +61,6 @@
     "ts-node": "^10.5.0",
     "typescript": "4.5.5"
   },
-  "jest": {
-    "coverageReporters": [
-      "json",
-      "text",
-      "html",
-      "lcov"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*/*.d.ts",
-      "!src/**/*/Loadable.{js,jsx,ts,tsx}",
-      "!src/**/*/types.ts",
-      "!src/**/store.ts",
-      "!src/index.tsx",
-      "!src/serviceWorker.ts",
-      "!<rootDir>/node_modules/",
-      "!**/templates/**",
-      "!**/template/**"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 50,
-        "functions": 50,
-        "lines": 50,
-        "statements": 50
-      }
-    }
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
