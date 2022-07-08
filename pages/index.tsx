@@ -7,6 +7,7 @@ import Cta from '../components/cta/Cta'
 import FeaturedItems from '../components/featured/FeaturedItems'
 import MainFooter from '../components/footer/MainFooter'
 import SuperCardOne from '../components/cards/SuperCardOne'
+import Reviews from '../components/reviews/Reviews'
 import { MainBannerCards } from '../utils/MainBannerCards'
 const Home = () => {
   return (
@@ -43,6 +44,7 @@ const Home = () => {
       </Box>
       <Cta />
       <FeaturedItems />
+      <Reviews />
       <MainFooter />
     </Container>
   )
