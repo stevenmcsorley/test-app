@@ -12,7 +12,7 @@ const Home = () => {
     <Container fixed>
       <Header />
       <MainNavigation />
-      <Box maxWidth="lg" sx={{ margin: 'auto' }} p={8}>
+      <Box sx={{ margin: 'auto' }} pt={8}>
         <Grid container rowSpacing={4} columnSpacing={4}>
           <Grid item xs={12} lg={8}>
             <SuperCardOne />

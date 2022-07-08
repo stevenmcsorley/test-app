@@ -1,15 +1,19 @@
 // Import Swiper React components
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react'
 
-import React from 'react'
+import React, { useRef } from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
 import Card from '@mui/material/Card'
 import CardMedia from '@mui/material/CardMedia'
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
+import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 
 // import required modules
-import { Pagination, Navigation } from 'swiper'
+import SwiperCore, { Navigation } from 'swiper'
+
+SwiperCore.use([Navigation])
 
 const data = [
   {
@@ -57,23 +61,61 @@ const data = [
 ]
 
 const FeaturedItems = () => {
+  const prevRef = useRef<HTMLDivElement>(null)
+  const nextRef = useRef<HTMLDivElement>(null)
   return (
-    <Box sx={{ textAlign: 'center' }}>
-      <Typography variant="h4" component="div" sx={{ textAlign: 'center' }}>
-        Featured Items
-      </Typography>
+    <Box sx={{ textAlign: 'center', mt: 8 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}
+      >
+        <Typography
+          variant="h4"
+          component="div"
+          sx={{
+            textAlign: 'left',
+            fontSize: 12,
+            mb: 2,
+            textTransform: 'uppercase',
+          }}
+        >
+          Featured Items
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'row', mb: 2 }}>
+          <Box ref={prevRef}>
+            <ArrowLeftIcon />
+          </Box>
+          <Box ref={nextRef}>
+            <ArrowRightIcon />
+          </Box>
+        </Box>
+      </Box>
+
       <SwiperReact
         slidesPerView={3}
         spaceBetween={30}
         slidesPerGroup={3}
         loop={true}
         loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
         className="mySwiper"
+        navigation={{
+          prevEl: prevRef.current ? prevRef.current : undefined,
+          nextEl: nextRef.current ? nextRef.current : undefined,
+        }}
+        onInit={(swiper) => {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          // eslint-disable-next-line no-param-reassign
+          swiper.params.navigation.prevEl = prevRef.current
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          // eslint-disable-next-line no-param-reassign
+          swiper.params.navigation.nextEl = nextRef.current
+          swiper.navigation.update()
+        }}
       >
         {data.map((item) => (
           <SwiperSlide key={item.id}>
@@ -82,9 +124,12 @@ const FeaturedItems = () => {
                 href={item.path}
                 variant="body1"
                 sx={{
-                  p: 4,
+                  position: 'absolute',
+                  left: 12,
+                  top: 12,
+                  textTransform: 'uppercase',
+                  fontSize: 12,
                   color: 'gray',
-                  fontWeight: 'bold',
                   textDecoration: 'none',
                   '&:hover': {
                     color: 'silver',
