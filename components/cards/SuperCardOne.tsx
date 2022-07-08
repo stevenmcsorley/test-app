@@ -18,7 +18,7 @@ export const SuperCardOne = () => {
     >
       <CardMedia
         component="img"
-        image="https://source.unsplash.com/random"
+        image="https://source.unsplash.com/random/?furniture"
         alt="green iguana"
         sx={{
           position: 'absolute',
