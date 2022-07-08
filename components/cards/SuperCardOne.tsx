@@ -5,8 +5,10 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import { SupercardOneProps } from './SuperCardOne.types'
 
-export const SuperCardOne = () => {
+const SuperCardOne = (props: SupercardOneProps) => {
+  const { title, image, imageAlt, description, buttonTitle } = props
   return (
     <Card
       sx={{
@@ -18,8 +20,8 @@ export const SuperCardOne = () => {
     >
       <CardMedia
         component="img"
-        image="https://source.unsplash.com/random/?furniture"
-        alt="green iguana"
+        image={image}
+        alt={imageAlt}
         sx={{
           position: 'absolute',
           top: 0,
@@ -33,21 +35,25 @@ export const SuperCardOne = () => {
         }}
       />
       <CardContent sx={{ position: 'relative', zIndex: '2' }}>
-        <Typography gutterBottom variant="h5" component="div">
-          Lorem ipsum dolor sit amet
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="h5"
+          data-testid="title"
+        >
+          {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus
-          lectus magna. Nam a faucibus enim.
+          {description}
         </Typography>
       </CardContent>
       <CardActions>
         <Button size="small" sx={{ color: 'black' }}>
-          Learn More
+          {buttonTitle}
         </Button>
       </CardActions>
     </Card>
   )
 }
 
-export default Card
+export default SuperCardOne
