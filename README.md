@@ -13,3 +13,9 @@ Pre Push hooks
 Run Tests to pass before pushing
 
 Cypress E2E testing including testing GTM events and instance
+
+Code coverage with jest
+
+Deployment to Vercal
+
+https://test-app-kappa-five.vercel.app/
