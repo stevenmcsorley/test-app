@@ -9,6 +9,7 @@ import MainFooter from '../components/footer/MainFooter'
 import SuperCardOne from '../components/cards/SuperCardOne'
 import Reviews from '../components/reviews/Reviews'
 import { MainBannerCards } from '../utils/MainBannerCards'
+import { FeaturedItemsData } from '../utils/FeaturedItems'
 const Home = () => {
   return (
     <Container fixed>
@@ -43,7 +44,7 @@ const Home = () => {
         </Grid>
       </Box>
       <Cta />
-      <FeaturedItems />
+      <FeaturedItems items={FeaturedItemsData} />
       <Reviews />
       <MainFooter />
     </Container>

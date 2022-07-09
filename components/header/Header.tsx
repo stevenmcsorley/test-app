@@ -7,9 +7,9 @@ const Header = () => {
       <Typography
         variant="h4"
         component="div"
-        sx={{ textAlign: 'center', py: 8 }}
+        sx={{ textAlign: 'center', py: 8, textTransform: 'uppercase' }}
       >
-        Heading
+        Vintage Room
       </Typography>
     </Box>
   )

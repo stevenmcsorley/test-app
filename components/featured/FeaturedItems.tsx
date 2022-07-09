@@ -10,75 +10,19 @@ import CardMedia from '@mui/material/CardMedia'
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 
+import { FeaturedItemsProps } from './FeaturedItems.types'
+
 // import required modules
 import SwiperCore, { Navigation } from 'swiper'
 
 SwiperCore.use([Navigation])
 
-const data = [
-  {
-    id: 1,
-    title: 'Featured Item 1',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300?minimal',
-    path: '/',
-  },
-  {
-    id: 2,
-    title: 'Featured Item 2',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300?deco',
-    path: '/',
-  },
-  {
-    id: 3,
-    title: 'Featured Item 3',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300/?vases',
-    path: '/',
-  },
-  {
-    id: 4,
-    title: 'Featured Item 4',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300?table',
-    path: '/',
-  },
-  {
-    id: 5,
-    title: 'Featured Item 5',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300?candleholder',
-    path: '/',
-  },
-  {
-    id: 6,
-    title: 'Featured Item 6',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300?sofa',
-    path: '/',
-  },
-  {
-    id: 7,
-    title: 'Featured Item 7',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300?chair',
-    path: '/',
-  },
-  {
-    id: 8,
-    title: 'Featured Item 8',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://source.unsplash.com/random/400x300?table',
-    path: '/',
-  },
-]
-
-const FeaturedItems = () => {
+const FeaturedItems = (props: FeaturedItemsProps) => {
+  const { items } = props
   const prevRef = useRef<HTMLDivElement>(null)
   const nextRef = useRef<HTMLDivElement>(null)
   return (
-    <Box sx={{ textAlign: 'center', mt: 8 }}>
+    <Box sx={{ textAlign: 'center', mt: 8 }} data-testid="featured">
       <Box
         sx={{
           display: 'flex',
@@ -99,16 +43,17 @@ const FeaturedItems = () => {
           Featured Items
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: 'row', mb: 2 }}>
-          <Box ref={prevRef}>
+          <Box ref={prevRef} className="previous">
             <ArrowLeftIcon />
           </Box>
-          <Box ref={nextRef}>
+          <Box ref={nextRef} className="next">
             <ArrowRightIcon />
           </Box>
         </Box>
       </Box>
 
       <SwiperReact
+        data-testid="featured-items"
         slidesPerView={4}
         spaceBetween={30}
         slidesPerGroup={4}
@@ -131,8 +76,8 @@ const FeaturedItems = () => {
           swiper.navigation.update()
         }}
       >
-        {data.map((item) => (
-          <SwiperSlide key={item.id}>
+        {items.map((item) => (
+          <SwiperSlide key={item.id} className="featured-item">
             <Card key={item.id}>
               <Link
                 href={item.path}
@@ -153,6 +98,7 @@ const FeaturedItems = () => {
                 {item.title}
               </Link>
               <CardMedia
+                data-testid="featured-item-image"
                 component="img"
                 image={item.image}
                 alt={item.title}
