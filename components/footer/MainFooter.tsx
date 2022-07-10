@@ -88,6 +88,7 @@ const MainFooter = () => {
     <Container fixed>
       <Box
         sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', my: 8 }}
+        data-testid="footer"
       >
         {footerColumns.map((column) => (
           <Box key={column.title}>
