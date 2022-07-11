@@ -5,6 +5,6 @@ import '@testing-library/jest-dom'
 describe('Home', () => {
   it('render the Header  component', () => {
     const { getByText } = render(<Header />)
-    expect(getByText('Vintage Room')).toBeVisible()
+    expect(getByText('Vintage Rooms')).toBeVisible()
   })
 })
