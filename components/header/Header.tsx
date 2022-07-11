@@ -9,7 +9,7 @@ const Header = () => {
         component="div"
         sx={{ textAlign: 'center', py: 8, textTransform: 'uppercase' }}
       >
-        Vintage Room
+        Vintage Rooms
       </Typography>
     </Box>
   )
